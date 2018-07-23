@@ -1,0 +1,58 @@
+{% extends "dashboard/base_dashboard.html" %}
+
+{% load static %}
+
+
+{% block title %}Organización{% endblock title %}
+
+{% block Main %}
+<div class="content mt-3">
+    <div class="animated fadeIn">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-header"><strong>Organización</strong><small> Detalles</small></div>
+                    <div class="card-body card-block">
+                        <div>
+                            <p><b>Nombre: </b>{{organizacion.nombre}}</p>
+                            <p><b>Estado: </b>{{organizacion.estado}}</p>
+                            <p><b>Municipio: </b>{{organizacion.municipio}}</p>
+                            <p><b>Localidad: </b>{{organizacion.localidad}}</p>
+                            <p><b>Calle: </b>{{organizacion.calle}}</p>
+                            <p><b>Número Exterior: </b>{{organizacion.numero_exterior}}</p>
+                            <p><b>Numero interior: </b>{{organizacion.numero_interior}}</p>
+                            <p><b>Colonia: </b>{{organizacion.colonia}}</p>
+                            <p><b>Codigo postal: </b>{{organizacion.codigo_postal}}</p>
+                            <p><b>Rfc: </b>{{organizacion.rfc}}</p>
+                            <p><b>Telefono 1: </b>{{organizacion.telefono_1}}</p>
+                            <p><b>Telefono 2: </b>{{organizacion.telefono_2}}</p>
+                            <p><b>Telefono 3: </b>{{organizacion.telefono_3}}</p>
+                            <p><b>Correo Eléctronico: </b>{{organizacion.correo_electronico_1}}</p>
+                            <p><b>Correo Eléctronico: </b>{{organizacion.correo_electronico_2}}</p>
+                            <h4 class="text-center mb-2 mt-2">Contacto 1</h4>
+                            <p><b>Nombre: </b>{{organizacion.contacto_1}}</p>
+                            <p><b>Puesto: </b>{{organizacion.puesto_contacto_1}}</p>
+                            <p><b>Teléfono: </b>{{organizacion.telefono_contacto1}}</p>
+                            <p><b>Correo: </b>{{organizacion.correo_electronico_contacto_1}}</p>
+                            <h4 class="text-center mb-2 mt-2">Contacto 2</h4>
+                            <p><b>Nombre: </b>{{organizacion.contacto_2}}</p>
+                            <p><b>Puesto: </b>{{organizacion.puesto_contacto_2}}</p>
+                            <p><b>Teléfono: </b>{{organizacion.telefono_contacto_2}}</p>
+                            <p><b>Correo: </b>{{organizacion.correo_electronico_contacto_2}}</p>
+                        </div>
+                        
+                        <div>
+                            <a href="{% url 'generales:organizacion_list' %}" class="btn btn-primary btn-block">Regresar</a>
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>        
+{% endblock Main %}
+
+{% block extrajs %}
+
+{% endblock extrajs %}
+

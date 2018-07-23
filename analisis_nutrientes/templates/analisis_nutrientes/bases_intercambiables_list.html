@@ -1,0 +1,52 @@
+{% extends "dashboard/base_dashboard.html" %}
+{% load humanize %}
+{% load static %}
+
+
+{% block title %} Bases Intercambiables {% endblock title %}
+
+{% block estrahead %}
+    
+{% endblock estrahead %}
+<link rel="stylesheet" href="{% static 'analisis_basico/css/estilos.css' %}">
+{% block Main %}
+
+<div class="content mt-3">
+    <div class="animated fadeIn">
+        <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-header">
+                    <strong class="card-title"><h2>Bases Intercambiables</h2></strong>
+                </div>
+                <div class="card-body table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">Folio</th>
+                                <th scope="col">Ca</th>
+                                <th scope="col">Mg</th>
+                                <th scope="col">Na</th>
+                                <th scope="col">K</th>
+                                <th scope="col"><a href="{% url 'analisis_nutrientes:bases_intercambiables_create' %}"><button type="button" class="btn btn-primary"><i class="fa fa-plus"></i>&nbsp; Nuevo</button></a></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for registro in basesintercambiables_list|dictsort:'id' reversed %}
+                            <tr>
+                                <th scope="row">{{registro.folio}}</th>
+                                <td>{{registro.Ca|floatformat:2|intcomma}}</td>
+                                <td>{{registro.Mg|floatformat:2|intcomma}}</td>
+                                <td>{{registro.Na|floatformat:2|intcomma}}</td>
+                                <td>{{registro.K|floatformat:2|intcomma}}</td>
+                                <th><a class="btn btn-outline-primary btn-sm mr-2" href="{% url 'analisis_nutrientes:bases_intercambiables_update' registro.id %}">Editar</a><a class="btn btn-outline-success btn-sm mr-2" href="{% url 'analisis_nutrientes:bases_intercambiables_detail' registro.id %}">Ver</a><a class="btn btn-outline-danger btn-sm" href="{% url 'analisis_nutrientes:bases_intercambiables_delete' registro.id %}">Eliminar</a></th>
+                            </tr>
+                        </tbody>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock Main %}

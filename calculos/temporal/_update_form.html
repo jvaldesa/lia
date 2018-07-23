@@ -1,0 +1,92 @@
+
+{% extends "dashboard/base_dashboard.html" %}
+
+{% load static %}
+
+
+{% block title %}
+Micronutrientes{% endblock title %}
+
+{% block Main %}
+
+<link rel="stylesheet" href="{% static 'analisis_basico/css/estilos.css' %}">
+<div class="container-fluid no-gutters bg-light pt-5 pb-5 ">
+  <div class="row justify-content-center">
+    <form class="col-md-8 pb-3 p-3" method="post" id="texturaForm">
+      {% csrf_token %}
+      <h2 class="text-center mb-4">Micronutrientes</h2>
+      
+      
+      <div class="form-row align-items-center">
+        <div class="col">
+          <label for="{{form.folio.label}}">{{form.folio.label}}</label>
+            {{form.folio}}
+            {{form.folio.errors}}
+        </div>
+      </div>
+
+      <div class="form-row mt-3 align-items-center">
+        <div class="col-sm-6">
+          <label for="{{form.Fe.label}}">{{form.Fe.label}}</label>
+          {{form.Fe}}
+          {{form.Fe.errors}}
+        </div>
+        <div class="col-sm-6">
+          <label for="{{form.Cu.label}}">{{form.Cu.label}}</label>
+          {{form.Cu}}
+          {{form.Cu.errors}}
+        </div>
+      </div>
+
+      <div class="form-row mt-3 align-items-center">
+        <div class="col-sm-6">
+          <label for="{{form.Mn.label}}">{{form.Mn.label}}</label>
+          {{form.Mn}}
+          {{form.Mn.errors}}
+        </div>
+        <div class="col-sm-6">
+          <label for="{{form.Zn.label}}">{{form.Zn.label}}</label>
+          {{form.Zn}}
+          {{form.Zn.errors}}
+        </div>
+      </div>
+
+
+      <div class="form-row mt-3 align-items-center">
+          <div class="col-md-6">
+            <label for="{{form.analista.label}}">{{form.analista.label}}</label>
+              {{form.analista}}
+              {{form.analista.errors}}
+          </div>
+          <div class="col-md-6">
+              <label for="{{form.fecha_analisis.label}}">{{form.fecha_analisis.label}}</label>
+                {{form.fecha_analisis}}
+                {{form.fecha_analisis.errors}}
+            </div>
+      </div>
+
+      <input type="submit" class="btn btn-primary btn-block mb-3 mt-5" value="Actualizar">
+    </form>
+  </div>
+</div>
+
+{% endblock Main %}
+
+{% block extrajs %}
+<script>
+jQuery(document).ready(function($) {
+  $(".datepicker").datepicker({
+    format: "dd/mm/yyyy",
+    todayBtn: "linked",
+    language: "es",
+    keyboardNavigation: false,
+    orientation: "top auto",
+    forceParse: false,
+    daysOfWeekHighlighted: "0",
+    autoclose: true,
+    todayHighlight: true,
+  });
+});
+</script>
+{% endblock extrajs %}
+

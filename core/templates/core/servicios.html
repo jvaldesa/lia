@@ -1,0 +1,67 @@
+{% extends "core/base.html" %}
+
+{% load static %}
+
+{% block title %}
+Inicio
+{% endblock title %}
+
+{% block extraheader %}
+<div class="container-fluid contenedor-head-servicios">
+    <div class="row ">
+        <div class="col-12 ">
+            <h2>Servicios</h2>
+        </div>
+    </div>
+</div>
+{% endblock extraheader %}
+
+{% block Main %}
+    <div class="container-fluid mt-3 mb-3 contenedor-main-servicios">
+        <div class="row">
+            <div class="col-12">
+                <h2 id="uno"> Servicio 1</h2>
+            </div>
+            <div class="col-sm-4">
+                <img class="img-servicios" src="{% static 'core/img/otro_micro.jpg' %}" alt="">
+            </div>
+            <div class="col-sm-8 align-self-center">
+                <p class="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut minus, repudiandae eaque beatae ducimus necessitatibus tenetur iusto recusandae vel, neque, quasi aliquid eos distinctio. Ipsum maiores architecto ab incidunt esse!
+                Cum consequatur atque animi illo ratione nulla? Quam minima aperiam, laboriosam accusamus iste est deserunt corporis error nemo, ex natus quod aut ipsam fugiat! Alias ex labore quasi eos officiis!
+                Repellendus natus, voluptatibus asperiores quos ex laboriosam harum deleniti vel id. Consequatur provident officia eveniet voluptates quo distinctio deleniti velit labore aliquid itaque? Facere, beatae autem sint pariatur sequi provident?</p>
+            </div>
+
+        </div>
+
+        <div class="row mt-5" id="dos">
+            <div class="col-12">
+                <h2> Servicio 2</h2>
+            </div>
+            <div class="col-sm-8 align-self-center">
+                <p class="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut minus, repudiandae eaque beatae ducimus necessitatibus tenetur iusto recusandae vel, neque, quasi aliquid eos distinctio. Ipsum maiores architecto ab incidunt esse!
+                Cum consequatur atque animi illo ratione nulla? Quam minima aperiam, laboriosam accusamus iste est deserunt corporis error nemo, ex natus quod aut ipsam fugiat! Alias ex labore quasi eos officiis!
+                Repellendus natus, voluptatibus asperiores quos ex laboriosam harum deleniti vel id. Consequatur provident officia eveniet voluptates quo distinctio deleniti velit labore aliquid itaque? Facere, beatae autem sint pariatur sequi provident?</p>
+            </div>
+    
+            <div class="col-sm-4">
+                <img class="img-servicios" src="{% static 'core/img/serv-2.jpg' %}" alt="">
+            </div>
+
+        </div>
+
+        <div class="row mt-5">
+                <div class="col-12">
+                    <h2 id="tres"> Servicio 3</h2>
+                </div>
+                <div class="col-sm-4">
+                    <img class="img-servicios" src="{% static 'core/img/maiz-2.jpg' %}" alt="">
+                </div>
+                <div class="col-sm-8 align-self-center">
+                    <p class="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut minus, repudiandae eaque beatae ducimus necessitatibus tenetur iusto recusandae vel, neque, quasi aliquid eos distinctio. Ipsum maiores architecto ab incidunt esse!
+                    Cum consequatur atque animi illo ratione nulla? Quam minima aperiam, laboriosam accusamus iste est deserunt corporis error nemo, ex natus quod aut ipsam fugiat! Alias ex labore quasi eos officiis!
+                    Repellendus natus, voluptatibus asperiores quos ex laboriosam harum deleniti vel id. Consequatur provident officia eveniet voluptates quo distinctio deleniti velit labore aliquid itaque? Facere, beatae autem sint pariatur sequi provident?</p>
+                </div>
+    
+            </div>
+    </div>
+{% endblock Main %}

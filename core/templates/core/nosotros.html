@@ -1,0 +1,54 @@
+{% extends "core/base.html" %}
+
+{% load static %}
+
+{% block title %}
+Inicio
+{% endblock title %}
+
+{% block extraheader %}
+    <div class="container-fluid contenedor-head-nosotros">
+        <div class="row ">
+            <div class="col-12 ">
+                <h2>NOSOTROS</h2>
+            </div>
+        </div>
+    </div>
+{% endblock extraheader %}
+
+{% block Main %}
+<div class="container-fluid mt-3 mb-3 contenedor-main-nosotros">
+    <div class="row align-items-center">
+        <div class="col-md-4 text-center">
+            
+            <img src="{% static 'core/img/logo2.png' %}" alt="" id="logo-nosotros">
+        </div>
+        <div class="col-md-8 mb-5">
+            <h3>Lorem ipsum dolor sit</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos libero earum cupiditate non id consequatur debitis sapiente repudiandae itaque modi facere fuga, illum culpa, aspernatur blanditiis quae sint nesciunt numquam.</p>
+            
+        </div>
+
+        <div class="w-100"></div>
+
+        <div class="col-md-6 text-center">
+            <img class="img-nosotros mt-3" src="{% static 'core/img/wheat.jpg' %}" alt="">
+        </div>
+        <div class="col-md-6">
+            <h3>Lorem ipsum dolor sit amet.</h3>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis sint quisquam adipisci provident est quam voluptates reiciendis! Ad perspiciatis consectetur libero sed, nam, dolores, fugiat aperiam quae eius quis eos.Dolorum ea modi, non facere omnis explicabo animi, labore nisi nulla magni minus cumque alias facilis assumenda asperiores. Quasi suscipit deleniti dolore ipsa doloribus ad dolor architecto assumenda aliquam ut.</p>
+            
+        </div>
+
+        <div class="w-100 mt-4"></div>
+
+        <div class="col-md-6">
+            <h3>Lorem ipsum dolor sit amet.</h3>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non, maxime pariatur? Deserunt aliquam temporibus eligendi explicabo eius in quaerat quae id ipsam est, quibusdam nulla rerum assumenda, quos esse modi?Maxime aliquid vitae laboriosam numquam cum ad labore ducimus optio, ipsum rerum cumque a error impedit consequatur id dignissimos deleniti inventore quidem fuga itaque fugiat delectus corrupti. Repudiandae, cum minima.</p>
+        </div>
+            <div class="col-md-6 text-center">
+                <img class="img-nosotros" src="{% static 'core/img/maiz.jpg' %}" alt="">
+            </div>
+    </div>
+</div>
+{% endblock Main %}

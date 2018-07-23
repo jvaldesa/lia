@@ -1,0 +1,104 @@
+{% extends "dashboard/base_dashboard.html" %}
+
+{% load static %}
+
+
+{% block title %} Municipios {% endblock title %}
+
+{% block estrahead %}
+<link rel="stylesheet" href="{% static 'dashboard/assets/css/lib/datatable/dataTables.bootstrap.min.css' %}">
+{% endblock estrahead %}
+
+{% block Main %}
+
+<div class="content mt-3">
+    <div class="animated fadeIn">
+        <div class="row">
+           
+
+
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <strong class="card-title"><h2>Municipios</h2></strong>
+                    </div>
+                    <div class="card-body">
+                        <table id="bootstrap-data-table" class="table  table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Estado</th>
+                                    <th>Opciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {% for registro in municipio_list %}
+                                <tr>
+                                    <td>{{registro.nombre}}</td>
+                                    <td>{{registro.estado}}</td>
+                                    <td><a class="btn btn-outline-primary btn-sm mr-2" href="{% url 'generales:municipio_update' registro.id %}">Editar</a></td>
+                                </tr>
+                            {% endfor %}
+                             </tbody>
+                        </table>
+                    </div>
+                    
+                    <!-- Menú de paginación -->
+                    {% comment %} {% if is_paginated %}
+                        <nav aria-label="Page navigation">
+                            <ul class="pagination justify-content-center">
+                            {% if page_obj.has_previous %}
+                                <li class="page-item ">
+                                <a class="page-link" href="?page={{ page_obj.previous_page_number }}">&laquo;</a>
+                                </li>
+                            {% else %}
+                                <li class="page-item disabled">
+                                <a class="page-link" href="#" tabindex="-1">&laquo;</a>
+                                </li>
+                            {% endif %}
+                            {% for i in paginator.page_range %}
+                                <li class="page-item {% if page_obj.number == i %}active">
+                                <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+                                {% elif i > page_obj.number|add:'-5' and i < page_obj.number|add:'5' %}
+                                <li class="page-item">
+                                <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+                                </li>
+                                {% endif %}
+                            {% endfor %}
+                            {% if page_obj.has_next %}
+                                <li class="page-item ">
+                                <a class="page-link" href="?page={{ page_obj.next_page_number }}">&raquo;</a>
+                                </li>
+                            {% else %}
+                                <li class="page-item disabled">
+                                <a class="page-link" href="#" tabindex="-1">&raquo;</a>
+                                </li>
+                            {% endif %}
+                            </ul>
+                        </nav>
+                    {% endif %} {% endcomment %}
+                </div>
+        </div>
+    </div>
+</div>
+{% endblock Main %}
+
+{% block extrajs %}
+<script src="{% static 'dashboard/assets/js/lib/data-table/datatables.min.js' %}"></script>
+<script src="{% static 'dashboard/assets/js/lib/data-table/dataTables.bootstrap.min.js' %}"></script>
+<script src="{% static 'dashboard/assets/js/lib/data-table/dataTables.buttons.min.js' %}"></script>
+<script src="{% static 'dashboard/assets/js/lib/data-table/buttons.bootstrap.min.js' %}"></script>
+<script src="{% static 'dashboard/assets/js/lib/data-table/jszip.min.js' %}"></script>
+<script src="{% static 'dashboard/assets/js/lib/data-table/pdfmake.min.js' %}"></script>
+<script src="{% static 'dashboard/assets/js/lib/data-table/vfs_fonts.js' %}"></script>
+<script src="{% static 'dashboard/assets/js/lib/data-table/buttons.html5.min.js' %}"></script>
+<script src="{% static 'dashboard/assets/js/lib/data-table/buttons.print.min.js' %}"></script>
+<script src="{% static 'dashboard/assets/js/lib/data-table/buttons.colVis.min.js' %}"></script>
+<script src="{% static 'dashboard/assets/js/lib/data-table/datatables-init.js' %}"></script>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#bootstrap-data-table-export').DataTable();
+  } );
+</script>
+{% endblock extrajs %}

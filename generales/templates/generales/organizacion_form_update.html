@@ -1,0 +1,54 @@
+{% extends "dashboard/base_dashboard.html" %}
+
+{% load static %}
+
+
+{% block title %}Organización{% endblock title %}
+
+{% block Main %}
+<div class="content mt-3">
+    <div class="animated fadeIn">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-header"><strong>Organización</strong><small> Actualizar</small></div>
+                    <div class="card-body card-block">
+                    <form method="post" id="organizacionForm" data-municipios-url="{% url 'generales:ajax_load_municipios' %}" novalidate>
+                        {% csrf_token %}
+                        <div class="form-group">
+                            {{form.as_p}}
+                        </div>
+                        
+                        <div>
+                            <input type="submit" class="btn btn-primary btn-block" value="Actualizar">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>        
+{% endblock Main %}
+
+{% block extrajs %}
+<script>
+jQuery(document).ready(function($) {
+    $("#id_estado").change(function () {
+      var url = $("#organizacionForm").attr("data-municipios-url");  // get the url of the `load_cities` view
+      var estadoId = $(this).val();  // get the selected country ID from the HTML input
+
+      $.ajax({                       // initialize an AJAX request
+        url: url,                    // set the url of the request (= localhost:8000/hr/ajax/load-cities/)
+        data: {
+          'estado': estadoId       // add the country id to the GET parameters
+        },
+        success: function (data) {   // `data` is the return of the `load_cities` view function
+          $("#id_municipio").html(data);  // replace the contents of the city input with the data that came from the server
+        }
+      });
+
+    });
+});
+  </script>
+{% endblock extrajs %}
+

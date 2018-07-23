@@ -1,0 +1,15 @@
+#recepcionForm {
+    padding: 10px;
+    border: solid 1px #BFBBBA;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px #BFBBBA;
+}
+
+.errorlist {
+    color:#721c24;
+    /* display: none; */
+    background: #f8d7da;
+    border-color: #f5c6cb;
+    border-radius: .25rem;
+    margin-top: 3px;
+}

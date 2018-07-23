@@ -1,0 +1,167 @@
+
+{% extends "dashboard/base_dashboard.html" %}
+
+{% load static %}
+
+
+{% block title %}
+Aniones{% endblock title %}
+
+{% block Main %}
+
+<link rel="stylesheet" href="{% static 'analisis_basico/css/estilos.css' %}">
+<div class="container-fluid no-gutters bg-light pt-5 pb-5 ">
+  <div class="row justify-content-center">
+    <form class="col-md-8 pb-3 p-3" method="post" id="texturaForm">
+      {% csrf_token %}
+      <h2 class="text-center mb-4">Aniones</h2>
+      
+      
+      <div class="form-row align-items-center">
+        <div class="col">
+          <label for="{{form.folio.label}}">{{form.folio.label}}</label>
+            {{form.folio}}
+            {{form.folio.errors}}
+        </div>
+      </div>
+
+      <div class="form-row mt-4 align-items-center">
+        <h5 class="col text-center">Carbonatos</h5>
+      </div>
+
+      <div class="form-row mt-3 align-items-center">
+        <div class="col-sm-6">
+          <label for="{{form.titulacionCar.label}}">{{form.titulacionCar.label}}</label>
+          {{form.titulacionCar}}
+          {{form.titulacionCar.errors}}
+        </div>
+        <div class="col-sm-6">
+          <label for="{{form.titulacionBlancoCar.label}}">{{form.titulacionBlancoCar.label}}</label>
+          {{form.titulacionBlancoCar}}
+          {{form.titulacionBlancoCar.errors}}
+        </div>
+      </div>
+
+      <div class="form-row mt-3 align-items-center">
+        <div class="col-sm-6">
+          <label for="{{form.normalidadH2SO4.label}}">{{form.normalidadH2SO4.label}}</label>
+          {{form.normalidadH2SO4}}
+          {{form.normalidadH2SO4.errors}}
+        </div>
+        <div class="col-sm-6">
+          <label for="{{form.alicuotaCar.label}}">{{form.alicuotaCar.label}}</label>
+          {{form.alicuotaCar}}
+          {{form.alicuotaCar.errors}}
+        </div>
+      </div>
+
+      <div class="form-row mt-4 align-items-center">
+        <h5 class="col text-center">Bicarbonatos</h5>
+      </div>
+
+      <div class="form-row mt-3 align-items-center">
+        <div class="col-sm-6">
+          <label for="{{form.titulacionBic.label}}">{{form.titulacionBic.label}}</label>
+          {{form.titulacionBic}}
+          {{form.titulacionBic.errors}}
+        </div>
+        <div class="col-sm-6">
+          <label for="{{form.titulacionBlancoBic.label}}">{{form.titulacionBlancoBic.label}}</label>
+          {{form.titulacionBlancoBic}}
+          {{form.titulacionBlancoBic.errors}}
+        </div>
+      </div>
+
+      <div class="form-row mt-3 align-items-start">
+        <div class="col-sm-6">
+          <label for="{{form.alicuotaBic.label}}">{{form.alicuotaBic.label}}</label>
+          {{form.alicuotaBic}}
+          {{form.alicuotaBic.errors}}
+        </div>
+      </div>
+
+      <div class="form-row mt-4 align-items-center">
+        <h5 class="col text-center">Cloruros</h5>
+      </div>
+
+      <div class="form-row mt-3 align-items-center">
+        <div class="col-sm-6">
+          <label for="{{form.titulacionClo.label}}">{{form.titulacionClo.label}}</label>
+          {{form.titulacionClo}}
+          {{form.titulacionClo.errors}}
+        </div>
+        <div class="col-sm-6">
+          <label for="{{form.titulacionBlancoClo.label}}">{{form.titulacionBlancoClo.label}}</label>
+          {{form.titulacionBlancoClo}}
+          {{form.titulacionBlancoClo.errors}}
+        </div>
+      </div>
+
+      <div class="form-row mt-3 align-items-center">
+        <div class="col-sm-6">
+          <label for="{{form.normalidadAgNO3.label}}">{{form.normalidadAgNO3.label}}</label>
+          {{form.normalidadAgNO3}}
+          {{form.normalidadAgNO3.errors}}
+        </div>
+        <div class="col-sm-6">
+          <label for="{{form.alicuotaClo.label}}">{{form.alicuotaClo.label}}</label>
+          {{form.alicuotaClo}}
+          {{form.alicuotaClo.errors}}
+        </div>
+      </div>
+
+      <div class="form-row mt-3 align-items-center">
+        <div class="col-sm-6">
+          <label for="{{form.conductividadEl.label}}">{{form.conductividadEl.label}}</label>
+          {{form.conductividadEl}}
+          {{form.conductividadEl.errors}}
+        </div>
+        <div class="col-sm-6">
+          <label for="{{form.unidad.label}}">{{form.unidad.label}}</label>
+          {{form.unidad}}
+          {{form.unidad.errors}}
+        </div>
+      </div>
+
+      <div class="form-row mt-4 align-items-center">
+        <h5 class="col text-center">Generales</h5>
+      </div>
+     
+      <div class="form-row mt-3 align-items-center">
+          <div class="col-md-6">
+            <label for="{{form.analista.label}}">{{form.analista.label}}</label>
+              {{form.analista}}
+              {{form.analista.errors}}
+          </div>
+          <div class="col-md-6">
+              <label for="{{form.fecha_analisis.label}}">{{form.fecha_analisis.label}}</label>
+                {{form.fecha_analisis}}
+                {{form.fecha_analisis.errors}}
+            </div>
+      </div>
+
+      <input type="submit" class="btn btn-primary btn-block mb-3 mt-5" value="Actualizar">
+    </form>
+  </div>
+</div>
+
+{% endblock Main %}
+
+{% block extrajs %}
+<script>
+jQuery(document).ready(function($) {
+  $(".datepicker").datepicker({
+    format: "dd/mm/yyyy",
+    todayBtn: "linked",
+    language: "es",
+    keyboardNavigation: false,
+    orientation: "top auto",
+    forceParse: false,
+    daysOfWeekHighlighted: "0",
+    autoclose: true,
+    todayHighlight: true,
+  });
+});
+</script>
+{% endblock extrajs %}
+

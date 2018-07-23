@@ -1,0 +1,32 @@
+{% extends "core/base.html" %}
+
+{% load static %}
+
+
+{% block title %}
+Consulta{% endblock title %}
+
+{% block Main %}
+
+<link rel="stylesheet" href="{% static 'analisis_basico/css/estilos.css' %}">
+<div class="container-fluid no-gutters bg-light pt-5 pb-5 ">
+  <div class="row justify-content-center">
+    <form class="col-md-6 pb-3 p-3" method="post" id="texturaForm">
+      {% csrf_token %}
+      <h2 class="text-center mb-4">Consulta</h2>
+      
+      <div class="form-row align-items-center">
+        <div class="col">
+          <label for="{{form.folio.label}}">{{form.folio.label}}</label>
+            {{form.folio}}
+            {{form.folio.errors}}
+        </div>
+      </div>
+
+      <input type="submit" class="btn btn-primary btn-block mb-3 mt-5" value="Procesar">
+    </form>
+  </div>
+</div>
+
+
+{% endblock Main %}

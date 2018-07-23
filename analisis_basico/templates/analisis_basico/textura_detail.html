@@ -1,0 +1,103 @@
+{% extends "dashboard/base_dashboard.html" %}
+
+{% load static %}
+
+
+{% block title %}
+Detalle{% endblock title %}
+
+{% block Main %}
+<link rel="stylesheet" href="{% static 'analisis_basico/css/estilos.css' %}">
+
+
+<div class="row justify-content-center mt-3">
+    <div class="col-md-8 text-center bg-light" id="detallesTextura">
+        <div class="card">
+                <div class="card-header">
+                    <strong class="card-title"> <h2>Detalle de Textura</h2> </strong>
+                </div>
+            <div class="col-12 mt-5 mb-5 text-left">
+                <h5 id="folio">{{textura.folio}}</h5>
+            </div>
+            <div class="col-12 mt-4"><h4>Datos de Entrada</h4></div>
+            <div class="col-12 mt-3">
+                <table class="table table-sm">
+                    <thead>
+                        <tr class="table-primary">
+                        <th scope="col">Lectura 1</th>
+                        <th scope="col">Lectura 2</th>
+                        <th scope="col">Lectura 3</th>
+                        <th scope="col">Lectura 4</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <td>{{textura.lectura_1}}</td>
+                        <td>{{textura.lectura_2}}</td>
+                        <td>{{textura.lectura_3}}</td>
+                        <td>{{textura.lectura_4}}</td>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="col-12 mt-3">
+                <table class="table table-sm">
+                    <thead>
+                        <tr class="table-primary">
+                        <th scope="col">Temperatura 1</th>
+                        <th scope="col">Temperatura 2</th>
+                        <th scope="col">Temperatura 3</th>
+                        <th scope="col">Temperatura 4</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <td>{{textura.temperatura_1}}</td>
+                        <td>{{textura.temperatura_2}}</td>
+                        <td>{{textura.temperatura_3}}</td>
+                        <td>{{textura.temperatura_4}}</td>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="col-12 mt-4"><h4>Resultados</h4></div>
+
+            <div class="col-12 mt-3">
+                <table class="table table-sm">
+                    <thead>
+                        <tr class="bg-success">
+                        <th class="colorblanco" scope="col">Arcillas</th>
+                        <th class="colorblanco" scope="col">Arenas</th>
+                        <th class="colorblanco" scope="col">Limos</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <td>{{textura.arcillas}}</td>
+                        <td>{{textura.arenas}}</td>
+                        <td>{{textura.limos}}</td>
+                    </tbody>
+                </table>
+                <table class="table table-sm">
+                    <thead>
+                        <tr class="bg-success">
+                        <th class="colorblanco" scope="col">Textura</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <td>{{textura.textura}}</td>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-12 mb-4">
+                <div class="col-md-6  text-center">
+                    <span id="folio">Analizo: {{textura.analista}}</span>
+                </div>
+                <div class="col-md-6 text-center">
+                    <span id="folio">Fecha de Analisis: {{textura.fecha_analisis}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    
+    <!-- </div> -->
+{% endblock Main %}
+

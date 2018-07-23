@@ -1,0 +1,46 @@
+{% extends "dashboard/base_dashboard.html" %}
+{% load humanize %}
+
+{% load static %}
+
+
+{% block title %}Punto de Saturación{% endblock title %}
+
+{% block Main %}
+<div class="content mt-3">
+    <div class="animated fadeIn">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-header"><strong>Punto de Saturación</strong><small> Detalles</small></div>
+                    <div class="card-body card-block">
+                        <div>
+                            <p><b>{{object.folio}}</b></p>
+                            <p><b>Peso Inicial Estufa: </b>{{object.peso_inicial_estufa}}</p>
+                            <p><b>Peso Final Estufa: </b>{{object.peso_final_estufa}}</p>
+                            <p><b>Agua Gastada Estufa: </b>{{ object.agua_gastada_estufa}}</p>
+                            <p><b>Peso Inicial Aire: </b>{{object.peso_inicial_aire}}</p>
+                            <p><b>Peso Final Aire: </b>{{object.peso_final_aire}}</p>
+                            <p><b>Agua Gastada Aire: </b>{{ object.agua_gastada_aire}}</p>
+                            <p><b>Punto de Saturación: </b>{{object.punto_saturacion}}</p>
+                            <p><b>Capacidad de Campo: </b>{{object.capacidad_campo}}</p>
+                            <p><b>Punto de Marchitez Permanente: </b>{{object.punto_marchitez}}</p>
+                            <p><b>Analista: </b>{{object.analista}}</p>
+                            <p><b>Fecha de Análisis: </b>{{object.fecha_analisis}}</p>
+                            
+                        </div>
+                        
+                        <div>
+                            <a href="{% url 'analisis_basico:punto_saturacion_list' %}" class="btn btn-primary btn-block">Regresar</a>
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>        
+{% endblock Main %}
+
+{% block extrajs %}
+
+{% endblock extrajs %}

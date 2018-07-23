@@ -1,0 +1,101 @@
+
+{% extends "dashboard/base_dashboard.html" %}
+
+{% load static %}
+
+
+{% block title %}
+Cationes{% endblock title %}
+
+{% block Main %}
+
+<link rel="stylesheet" href="{% static 'analisis_basico/css/estilos.css' %}">
+<div class="container-fluid no-gutters bg-light pt-5 pb-5 ">
+  <div class="row justify-content-center">
+    <form class="col-md-8 pb-3 p-3" method="post" id="texturaForm">
+      {% csrf_token %}
+      <h2 class="text-center mb-4">Cationes</h2>
+      
+      
+      <div class="form-row align-items-center">
+        <div class="col">
+          <label for="{{form.folio.label}}">{{form.folio.label}}</label>
+            {{form.folio}}
+            {{form.folio.errors}}
+        </div>
+      </div>
+
+      <div class="form-row mt-3 align-items-center">
+        <div class="col-sm-4">
+          <label for="{{form.titulacionCaMg.label}}">{{form.titulacionCaMg.label}}</label>
+          {{form.titulacionCaMg}}
+          {{form.titulacionCaMg.errors}}
+        </div>
+        <div class="col-sm-4">
+          <label for="{{form.normalidadEDTA.label}}">{{form.normalidadEDTA.label}}</label>
+          {{form.normalidadEDTA}}
+          {{form.normalidadEDTA.errors}}
+        </div>
+        <div class="col-sm-4">
+          <label for="{{form.titulacionCa.label}}">{{form.titulacionCa.label}}</label>
+          {{form.titulacionCa}}
+          {{form.titulacionCa.errors}}
+        </div>
+      </div>
+
+      <div class="form-row mt-3 align-items-center">
+        <div class="col-sm-4">
+          <label for="{{form.alicuota.label}}">{{form.alicuota.label}}</label>
+          {{form.alicuota}}
+          {{form.alicuota.errors}}
+        </div>
+        <div class="col-sm-4">
+          <label for="{{form.Na.label}}">{{form.Na.label}}</label>
+          {{form.Na}}
+          {{form.Na.errors}}
+        </div>
+        <div class="col-sm-4">
+          <label for="{{form.K.label}}">{{form.K.label}}</label>
+          {{form.K}}
+          {{form.K.errors}}
+        </div>
+      </div>
+
+      <div class="form-row mt-3 align-items-center">
+          <div class="col-md-6">
+            <label for="{{form.analista.label}}">{{form.analista.label}}</label>
+              {{form.analista}}
+              {{form.analista.errors}}
+          </div>
+          <div class="col-md-6">
+              <label for="{{form.fecha_analisis.label}}">{{form.fecha_analisis.label}}</label>
+                {{form.fecha_analisis}}
+                {{form.fecha_analisis.errors}}
+            </div>
+      </div>
+
+      <input type="submit" class="btn btn-primary btn-block mb-3 mt-5" value="Guardar">
+    </form>
+  </div>
+</div>
+
+{% endblock Main %}
+
+{% block extrajs %}
+<script>
+jQuery(document).ready(function($) {
+  $(".datepicker").datepicker({
+    format: "dd/mm/yyyy",
+    todayBtn: "linked",
+    language: "es",
+    keyboardNavigation: false,
+    orientation: "top auto",
+    forceParse: false,
+    daysOfWeekHighlighted: "0",
+    autoclose: true,
+    todayHighlight: true,
+  });
+});
+</script>
+{% endblock extrajs %}
+

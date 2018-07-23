@@ -1,0 +1,39 @@
+{% extends "dashboard/base_dashboard.html" %}
+{% load humanize %}
+
+{% load static %}
+
+
+{% block title %}Fosforo{% endblock title %}
+
+{% block Main %}
+<div class="content mt-3">
+    <div class="animated fadeIn">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-header"><strong>Fosforo</strong><small> Detalles</small></div>
+                    <div class="card-body card-block">
+                        <div>
+                            <p><b>{{object.folio}}</b></p>
+                            <p><b>Tipo: </b>{{object.tipo}}</p>
+                            <p><b>Fosforo: </b>{{object.fosforo|floatformat:2|intcomma}}</p>
+                            <p><b>Analista: </b>{{object.analista}}</p>
+                            <p><b>Fecha de Análisis: </b>{{object.fecha_analisis}}</p>
+                            
+                        </div>
+                        
+                        <div>
+                            <a href="{% url 'analisis_nutrientes:fosforo_list' %}" class="btn btn-primary btn-block">Regresar</a>
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>        
+{% endblock Main %}
+
+{% block extrajs %}
+
+{% endblock extrajs %}

@@ -1,0 +1,102 @@
+
+{% extends "dashboard/base_dashboard.html" %}
+
+{% load static %}
+
+
+{% block title %}
+Color y Densidad Aparente{% endblock title %}
+
+{% block Main %}
+
+<link rel="stylesheet" href="{% static 'analisis_basico/css/estilos.css' %}">
+<div class="container-fluid no-gutters bg-light pt-5 pb-5 ">
+  <div class="row justify-content-center">
+    <form class="col-md-6 pb-3 p-3" method="post" id="texturaForm">
+      {% csrf_token %}
+      <h2 class="text-center mb-4">Color y Densidad Aparente</h2>
+      
+      
+      <div class="form-row align-items-center">
+        <div class="col">
+          <label for="{{form.folio.label}}">{{form.folio.label}}</label>
+            {{form.folio}}
+            {{form.folio.errors}}
+        </div>
+      </div>
+
+      <div class="form-row mt-4 align-items-center">
+          <h5 class="col text-center">Color</h5>
+      </div>
+      <div class="form-row mt-3 align-items-center">
+        <div class="col-sm-6">
+          <label for="{{form.clave.label}}">{{form.clave.label}}</label>
+          {{form.clave}}
+          {{form.clave.errors}}
+        </div>
+        <div class="col-sm-6">
+          <label for="{{form.color.label}}">{{form.color.label}}</label>
+          {{form.color}}
+          {{form.color.errors}}
+        </div>
+      </div>
+
+      <div class="form-row mt-4 align-items-center">
+          <h5 class="col text-center">Densidad Aparente</h5>
+      </div>
+
+      <div class="form-row mt-3 align-items-center">
+          <div class="col-md-6">
+            <label for="{{form.peso.label}}">{{form.peso.label}}</label>
+              {{form.peso}}
+              {{form.peso.errors}}
+          </div>
+          <div class="col-md-6">
+              <label for="{{form.volumen.label}}">{{form.volumen.label}}</label>
+                {{form.volumen}}
+                {{form.volumen.errors}}
+            </div>
+      </div>
+
+      <div class="form-row mt-4 align-items-center">
+          <h5 class="col text-center">Generales</h5>
+      </div>
+
+      <div class="form-row mt-3 align-items-center">
+          <div class="col-md-6">
+            <label for="{{form.analista.label}}">{{form.analista.label}}</label>
+              {{form.analista}}
+              {{form.analista.errors}}
+          </div>
+          <div class="col-md-6">
+              <label for="{{form.fecha_analisis.label}}">{{form.fecha_analisis.label}}</label>
+                {{form.fecha_analisis}}
+                {{form.fecha_analisis.errors}}
+            </div>
+      </div>
+
+      <input type="submit" class="btn btn-primary btn-block mb-3 mt-5" value="Guardar">
+    </form>
+  </div>
+</div>
+
+{% endblock Main %}
+
+{% block extrajs %}
+<script>
+jQuery(document).ready(function($) {
+  $(".datepicker").datepicker({
+    format: "dd/mm/yyyy",
+    todayBtn: "linked",
+    language: "es",
+    keyboardNavigation: false,
+    orientation: "top auto",
+    forceParse: false,
+    daysOfWeekHighlighted: "0",
+    autoclose: true,
+    todayHighlight: true,
+  });
+});
+</script>
+{% endblock extrajs %}
+

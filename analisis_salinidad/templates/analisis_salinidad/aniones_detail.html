@@ -1,0 +1,57 @@
+{% extends "dashboard/base_dashboard.html" %}
+{% load humanize %}
+
+{% load static %}
+
+
+{% block title %}Aniones{% endblock title %}
+
+{% block Main %}
+<div class="content mt-3">
+    <div class="animated fadeIn">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-header"><strong>Aniones</strong><small> Detalles</small></div>
+                    <div class="card-body card-block">
+                        <div>
+                            <p><b>{{object.folio}}</b></p>
+                            <div class="mt-3 mb-3 text-center"><h5>Carbonatos</h5></div>
+                            <p><b>Titulación: </b>{{object.titulacionCar|floatformat:2|intcomma}}</p>
+                            <p><b>Titulación Blanco: </b>{{object.titulacionBlancoCar|floatformat:2|intcomma}}</p>
+                            <p><b>Normalidad H2SO4: </b>{{ object.normalidadH2SO4|floatformat:2|intcomma}}</p>
+                            <p><b>Alicuota: </b>{{object.alicuotaCar|floatformat:2|intcomma}}</p>
+                            <div class="mt-3 mb-3 text-center"><h5>Bicarbonatos</h5></div>
+                            <p><b>Titulación: </b>{{object.titulacionBic|floatformat:2|intcomma}}</p>
+                            <p><b>Titulación Blanco: </b>{{object.titulacionBlancoBic|floatformat:2|intcomma}}</p>
+                            <p><b>Alicuota: </b>{{object.alicuotaBic|floatformat:2|intcomma}}</p>
+                            <div class="mt-3 mb-3 text-center"><h5>Cloruros</h5></div>
+                            <p><b>Titulación: </b>{{object.titulacionClo|floatformat:2|intcomma}}</p>
+                            <p><b>Titulación Blanco: </b>{{object.titulacionBlancoClo|floatformat:2|intcomma}}</p>
+                            <p><b>Normalidad AgNO3: </b>{{ object.normalidadAgNO3|floatformat:2|intcomma}}</p>
+                            <p><b>Alicuota: </b>{{object.alicuotaClo|floatformat:2|intcomma}}</p>
+                            <p><b>Coductividad Eléctrica: </b>{{object.conductividadEl|floatformat:2|intcomma}} ({{object.unidad}})</p>
+                            <div class="mt-3 mb-3 text-center"><h5>Resultados</h5></div>
+                            <p><b>Carbonatos (meq/L): </b>{{object.carbonatos|floatformat:2|intcomma}}</p>
+                            <p><b>Bicarbonatos (meq/L): </b>{{object.bicarbonatos|floatformat:2|intcomma}}</p>
+                            <p><b>Cloruros (meq/L): </b>{{object.cloruros|floatformat:2|intcomma}}</p>
+                            <p><b>Sulfatos (meq/L): </b>{{object.sulfatos|floatformat:2|intcomma}}</p>
+                            <p><b>Analista: </b>{{object.analista}}</p>
+                            <p><b>Fecha de Análisis: </b>{{object.fecha_analisis}}</p>
+                            
+                        </div>
+                        
+                        <div>
+                            <a href="{% url 'analisis_salinidad:aniones_list' %}" class="btn btn-primary btn-block">Regresar</a>
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>        
+{% endblock Main %}
+
+{% block extrajs %}
+
+{% endblock extrajs %}

@@ -1,0 +1,197 @@
+/* font-family: 'Lato', sans-serif;
+
+    font-family: 'Comfortaa', cursive;
+
+    font-family: 'Open Sans', sans-serif;
+
+    font-family: 'Roboto', sans-serif; */
+
+
+/* BODY */
+
+
+body {
+    background: #e9ebee;
+    margin: 0px;
+    padding-top: 63px;
+    position: relative;
+}
+
+/*-------- HEADER */
+
+    /*-------- Barra de Navegacion */
+
+    #headerNav {
+        background-color: #67B2E7; 
+        font-family: 'Open Sans', sans-serif;
+        line-height: 1;
+    }
+    
+    #headerNav .navbar-brand {
+        font-size: 2rem;
+    }
+    
+    #headerNav .navbar-brand i {
+        font-size: 2.3rem;
+    }
+    
+    
+    #headerNav .navbar-nav .nav-item .nav-link {
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 1rem;
+        font-weight: 400;
+    }
+    
+    #headerNav .navbar-nav .nav-item.active .nav-link {
+        color: white;
+        border-bottom: solid 4px white;
+        
+    }
+    
+    #headerNav .navbar-nav .nav-item .nav-link:hover {
+        color:rgba(255, 255, 255, 1);
+    }
+
+
+    /*-------- Carrusel */
+
+    
+    .carousel-inner img {
+        max-height: 480px;
+        
+    }
+
+    .carousel-inner{
+        max-height: 480px;
+    }
+
+
+    /* **_*_*_*_*_*_*_*_*_*_*_Nosotros */
+
+    .contenedor-head-nosotros {
+        background-image: url("../img/microscope3.jpg");
+        width: 100%;
+        background-attachment: fixed;
+        height: 400px;
+
+    }
+
+    .contenedor-head-nosotros h2 {
+        color: white;
+        text-align: center;
+        margin-top: 200px;
+        /* font-family: 'Lato', sans-serif; */
+        /* font-family: 'Comfortaa', cursive; */
+        font-family: 'Roboto', sans-serif;
+        font-size: 3rem;
+        font-weight: 400;
+        font-style: italic;
+    }
+
+        /* **_*_*_*_*_*_*_*_*_*_*_Nosotros */
+
+        .contenedor-head-servicios {
+            background-image: url("../img/serv.jpg");
+            width: 100%;
+            background-attachment: fixed;
+            height: 400px;
+    
+        }
+    
+        .contenedor-head-servicios h2 {
+            color: white;
+            text-align: center;
+            margin-top: 200px;
+            /* font-family: 'Lato', sans-serif; */
+            /* font-family: 'Comfortaa', cursive; */
+            font-family: 'Roboto', sans-serif;
+            font-size: 3rem;
+            font-weight: 400;
+            font-style: italic;
+        }
+    
+
+
+/*-------- MAIN */
+main {
+    border-bottom: 5px;
+}
+    
+.contenido-index h3 {
+    background: #77BC1F;
+    color: white;
+    border-radius: 5px;
+    padding: 5px;
+    text-align: center;
+}
+
+    /* **_*_*_*_*_*_*_*_*_*_*_Nosotros */
+
+#logo-nosotros {
+    width: 100px;
+}
+
+.contenedor-main-nosotros .img-nosotros {
+    width: 350px;
+    border-radius: 10px;
+}
+
+    /* **_*_*_*_*_*_*_*_*_*_*Servicios */
+.contenedor-main-servicios {
+    font-family: 'Lato', sans-serif;
+}
+.contenedor-main-servicios h2 {
+    text-align: center;
+}
+.contenedor-main-servicios .img-servicios {
+    width: 400px;
+    border-radius: 10px;
+}
+
+.contenedor-main-servicios p {
+    font-family: 'Comfortaa', cursive;
+}
+
+/*-------- FOOTER */
+
+.footer {
+    background-color: #67B2E7;
+    text-align: center;
+    padding-bottom: 20px;
+    
+}
+
+.footer .icono {
+    font-size: 2.5rem;
+}
+
+#ico-face {
+    color: #3b5998;
+}
+
+#ico-insta {
+    color: #c13584;
+}
+
+#ico-twit {
+    color: #1da1f2;
+}
+
+
+
+
+/*-------- MEDIA QUERY */
+
+
+
+@media screen and (max-width: 575px) {
+    #headerNav .navbar-brand {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 1050px) {
+    #headerNav .navbar-nav .nav-item .nav-link {
+    font-size: .7rem;
+    }
+}

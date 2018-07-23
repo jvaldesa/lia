@@ -1,0 +1,42 @@
+{% extends "dashboard/base_dashboard.html" %}
+{% load humanize %}
+
+{% load static %}
+
+
+{% block title %}Color y Densidad Aparente{% endblock title %}
+
+{% block Main %}
+<div class="content mt-3">
+    <div class="animated fadeIn">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-header"><strong>Color y Densidad Aparente</strong><small> Detalles</small></div>
+                    <div class="card-body card-block">
+                        <div>
+                            <p><b>{{object.folio}}</b></p>
+                            <p><b>Color Clave: </b>{{object.clave}}</p>
+                            <p><b>Color: </b>{{object.color}}</p>
+                            <p><b>Peso: </b>{{ object.peso}}</p>
+                            <p><b>Volumen: </b>{{object.volumen}}</p>
+                            <p><b>Densidad Aparente: </b>{{object.densidad_aparente}}</p>
+                            <p><b>Analista: </b>{{object.analista}}</p>
+                            <p><b>Fecha de Análisis: </b>{{object.fecha_analisis}}</p>
+                            
+                        </div>
+                        
+                        <div>
+                            <a href="{% url 'analisis_basico:color_densidad_aparente_list' %}" class="btn btn-primary btn-block">Regresar</a>
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>        
+{% endblock Main %}
+
+{% block extrajs %}
+
+{% endblock extrajs %}

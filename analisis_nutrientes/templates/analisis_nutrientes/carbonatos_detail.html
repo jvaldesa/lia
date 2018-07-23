@@ -1,0 +1,42 @@
+{% extends "dashboard/base_dashboard.html" %}
+{% load humanize %}
+
+{% load static %}
+
+
+{% block title %}Carbonatos Totales{% endblock title %}
+
+{% block Main %}
+<div class="content mt-3">
+    <div class="animated fadeIn">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-header"><strong>Carbonatos Totales</strong><small> Detalles</small></div>
+                    <div class="card-body card-block">
+                        <div>
+                            <p><b>{{object.folio}}</b></p>
+                            <p><b>Molaridad: </b>{{object.m}}</p>
+                            <p><b>Titulación Blanco (ml): </b>{{object.a}}</p>
+                            <p><b>Titulación Muestra (ml): </b>{{ object.b}}</p>
+                            <p><b>Peso de la Muestra (gr): </b>{{object.s}}</p>
+                            <p><b>Carbonatos Totales: </b>{{object.CaCo3|floatformat:2|intcomma}}</p>
+                            <p><b>Analista: </b>{{object.analista}}</p>
+                            <p><b>Fecha de Análisis: </b>{{object.fecha_analisis}}</p>
+                            
+                        </div>
+                        
+                        <div>
+                            <a href="{% url 'analisis_nutrientes:carbonatos_list' %}" class="btn btn-primary btn-block">Regresar</a>
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>        
+{% endblock Main %}
+
+{% block extrajs %}
+
+{% endblock extrajs %}

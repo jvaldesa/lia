@@ -1,0 +1,113 @@
+
+{% extends "dashboard/base_dashboard.html" %}
+
+{% load static %}
+
+
+{% block title %}
+Textura{% endblock title %}
+
+{% block Main %}
+
+<link rel="stylesheet" href="{% static 'analisis_basico/css/estilos.css' %}">
+<div class="container-fluid no-gutters bg-light pt-5 pb-5 ">
+  <div class="row justify-content-center">
+    <form class="col-md-6 pb-3 p-3" method="post" id="texturaForm">
+      {% csrf_token %}
+      <h2 class="text-center mb-4">Textura</h2>
+      
+      <div class="form-row align-items-center">
+        <div class="col">
+          <label for="{{form.folio.label}}">{{form.folio.label}}</label>
+            {{form.folio}}
+            {{form.folio.errors}}
+        </div>
+      </div>
+
+      <div class="form-row align-items-center mt-3">
+        <div class="col-md-3 ">
+          <label for="{{form.lectura_1.label}}">{{form.lectura_1.label}}</label>
+          {{form.lectura_1}}
+          {{form.lectura_1.errors}}
+        </div>
+        <div class="col-md-3 pl-3">
+          <label for="{{form.lectura_2.label}}">{{form.lectura_2.label}}</label>
+          {{form.lectura_2}}
+          {{form.lectura_2.errors}}
+        </div>
+        <div class="col-md-3 pl-3">
+          <label for="{{form.lectura_3.label}}">{{form.lectura_3.label}}</label>
+          {{form.lectura_3}}
+          {{form.lectura_3.errors}}
+        </div>
+        <div class="col-md-3 pl-3">
+          <label for="{{form.lectura_4.label}}">{{form.lectura_4.label}}</label>
+          {{form.lectura_4}}
+          {{form.lectura_4.errors}}
+        </div>
+      </div>
+
+      <div class="form-row align-items-center mt-3">
+        <div class="col-md-3 ">
+          <label for="{{form.temperatura_1.label}}">{{form.temperatura_1.label}}</label>
+          {{form.temperatura_1}}
+          {{form.temperatura_1.errors}}
+        </div>
+        <div class="col-md-3 pl-3">
+          <label for="{{form.temperatura_2.label}}">{{form.temperatura_2.label}}</label>
+          {{form.temperatura_2}}
+          {{form.temperatura_2.errors}}
+        </div>
+        <div class="col-md-3 pl-3">
+          <label for="{{form.temperatura_3.label}}">{{form.temperatura_3.label}}</label>
+          {{form.temperatura_3}}
+          {{form.temperatura_3.errors}}
+        </div>
+        <div class="col-md-3 pl-3">
+          <label for="{{form.temperatura_4.label}}">{{form.temperatura_4.label}}</label>
+          {{form.temperatura_4}}
+          {{form.temperatura_4.errors}}
+        </div>
+      </div>
+
+      <div class="form-row align-items-center mt-3">
+        <div class="col-md-8 ">
+          <label for="{{form.analista.label}}">{{form.analista.label}}</label>
+          {{form.analista}}
+          {{form.analista.errors}}
+        </div>
+        <div class="col-md-4 pl-3">
+          <label for="{{form.fecha_analisis.label}}">{{form.fecha_analisis.label}}</label>
+          {{form.fecha_analisis}}
+          {{form.fecha_analisis.errors}}
+        </div>
+      </div>
+
+      
+      <input type="submit" class="btn btn-primary btn-block mb-3 mt-5" value="Actualizar">
+    </form>
+  </div>
+</div>
+{% endblock Main %}
+
+
+{% block extrajs %}
+<script>
+
+  jQuery(document).ready(function($) {
+    $(".datepicker").datepicker({
+      format: "dd/mm/yyyy",
+      todayBtn: "linked",
+      language: "es",
+      keyboardNavigation: false,
+      orientation: "top auto",
+      forceParse: false,
+      daysOfWeekHighlighted: "0",
+      autoclose: true,
+      todayHighlight: true,
+      
+    });
+});
+</script>
+{% endblock extrajs %}
+

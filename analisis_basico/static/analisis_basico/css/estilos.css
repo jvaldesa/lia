@@ -1,0 +1,40 @@
+#texturaForm {
+    padding: 10px;
+    border: solid 1px #BFBBBA;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px #BFBBBA;
+    background: #fff;
+}
+
+.errorlist {
+    color:#721c24;
+    /* display: none; */
+    background: #f8d7da;
+    border-color: #f5c6cb;
+    border-radius: .25rem;
+    margin-top: 3px;
+}
+
+#detallesTextura {
+    padding: 10px;
+    border: solid 1px #BFBBBA;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px #BFBBBA;
+}
+
+#folio {
+    border-bottom: solid 1px #BFBBBA;
+    padding: 5px;
+}
+
+#detallesTextura .colorblanco {
+    color: #fff;
+}
+
+#detallesTextura table td {
+    font-size: 1.1rem;
+}
+
+.btn button{
+    border-radius: 30%;
+}

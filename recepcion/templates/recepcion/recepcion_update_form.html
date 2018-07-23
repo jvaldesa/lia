@@ -1,0 +1,159 @@
+
+{% extends "dashboard/base_dashboard.html" %}
+
+{% load static %}
+
+
+{% block title %}
+Modificación de Recepción{% endblock title %}
+
+{% block Main %}
+<link rel="stylesheet" href="{% static 'recepcion/css/estilos_recep.css' %}">
+<div class="container-fluid no-gutters bg-light pt-5 pb-5 ">
+  <div class="row justify-content-center">
+    <form class="col-md-6 pb-3" method="post" id="recepcionForm" data-municipios-url="{% url 'generales:ajax_load_municipios' %}" novalidate>
+      {% csrf_token %}
+      <h2 class="text-center mb-4">Actualizar Recepción</h2>
+      
+      <div class="form-row align-items-center">
+        <div class="col-md-4">
+          <label for="{{form.folio.label}}">{{form.folio.label}}</label>
+            {{form.folio}}
+            {{form.folio.errors}}
+        </div>
+        <div class="col-md-8 pl-3">
+            <label for="{{form.productor.label}}">{{form.productor.label}}</label>
+            {{form.productor}}
+            {{form.productor.errors}}
+        </div>
+        
+      </div>
+      
+      <div class="form-row align-items-center mt-3">
+        <div class="col-md-6 ">
+          <label for="{{form.organizacion.label}}">{{form.organizacion.label}}</label>
+          {{form.organizacion}}
+          {{form.organizacion.errors}}
+        </div>
+        <div class="col-md-3 pl-3">
+          <label for="{{form.fecha_recepcion.label}}">{{form.fecha_recepcion.label}}</label>
+          {{form.fecha_recepcion}}
+          {{form.fecha_recepcion.errors}}
+        </div>
+        <div class="col-md-3 pl-3">
+            <label for="{{form.fecha_muestreo.label}}">{{form.fecha_muestreo.label}}</label>
+            {{form.fecha_muestreo}}
+            {{form.fecha_muestreo.errors}}
+        </div>
+        
+      </div>
+
+      <div class="form-row align-items-center mt-3">
+        <div class="col-md-3">
+          <label for="{{form.tipo_analisis.label}}">{{form.tipo_analisis.label}}</label>
+            {{form.tipo_analisis}}
+            {{form.tipo_analisis.errors}}
+        </div>
+        <div class="col-md-3 pl-3">
+            <label for="{{form.regimen_hidrico.label}}">{{form.regimen_hidrico.label}}</label>
+            {{form.regimen_hidrico}}
+            {{form.regimen_hidrico.errors}}
+        </div>
+        <div class="col-md-3 pl-3">
+            <label for="{{form.profundida_cm.label}}">{{form.profundida_cm.label}}</label>
+            {{form.profundida_cm}}
+            {{form.profundida_cm.errors}}
+        </div>
+        <div class="col-md-3 pl-3">
+          <label for="{{form.numero_hectareas.label}}">{{form.numero_hectareas.label}}</label>
+          {{form.numero_hectareas}}
+          {{form.numero_hectareas.errors}}
+        </div>
+      </div>
+
+      <div class="form-row align-items-center mt-3">
+        <div class="col-md-4">
+          <label for="{{form.cultivo_anterior.label}}">{{form.cultivo_anterior.label}}</label>
+            {{form.cultivo_anterior}}
+            {{form.cultivo_anterior.errors}}
+        </div>
+        <div class="col-md-4 pl-3">
+            <label for="{{form.cultivo_a_establecer.label}}">{{form.cultivo_a_establecer.label}}</label>
+            {{form.cultivo_a_establecer}}
+            {{form.cultivo_a_establecer.errors}}
+        </div>
+        <div class="col-md-4 pl-3">
+            <label for="{{form.rendimiento_esperado.label}}">{{form.rendimiento_esperado.label}}</label>
+            {{form.rendimiento_esperado}}
+            {{form.rendimiento_esperado.errors}}
+        </div>
+      </div>
+
+      <div class="form-row align-items-center mt-3">
+        <div class="col-md-3">
+          <label for="{{form.estado.label}}">{{form.estado.label}}</label>
+            {{form.estado}}
+            {{form.estado.errors}}
+        </div>
+        <div class="col-md-3 pl-3">
+            <label for="{{form.municipio.label}}">{{form.municipio.label}}</label>
+            {{form.municipio}}
+            {{form.municipio.errors}}
+        </div>
+        <div class="col-md-6 pl-3">
+            <label for="{{form.localidad_ejido.label}}">{{form.localidad_ejido.label}}</label>
+            {{form.localidad_ejido}}
+            {{form.localidad_ejido.errors}}
+        </div>
+      </div>
+
+      <input type="submit" class="btn btn-primary btn-block mb-3 mt-5" value="Actualizar">
+    </form>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block extrajs %}
+
+
+  <script>
+  jQuery(document).ready(function($) {
+    $("#id_estado").change(function () {
+      var url = $("#recepcionForm").attr("data-municipios-url");  // get the url of the `load_cities` view
+      var estadoId = $(this).val();  // get the selected country ID from the HTML input
+
+      $.ajax({                       // initialize an AJAX request
+        url: url,                    // set the url of the request (= localhost:8000/hr/ajax/load-cities/)
+        data: {
+          'estado': estadoId       // add the country id to the GET parameters
+        },
+        success: function (data) {   // `data` is the return of the `load_cities` view function
+          $("#id_municipio").html(data);  // replace the contents of the city input with the data that came from the server
+        }
+      });
+
+    });
+  });
+  </script>
+
+  <script>
+  jQuery(document).ready(function($) {
+
+    $(".datepicker").datepicker({
+      format: "dd/mm/yyyy",
+      todayBtn: "linked",
+      language: "es",
+      keyboardNavigation: false,
+      orientation: "bottom auto",
+      forceParse: false,
+      daysOfWeekHighlighted: "0",
+      autoclose: true,
+      todayHighlight: true,
+    });
+  });
+  </script>
+
+  {% endblock extrajs %}
+
+

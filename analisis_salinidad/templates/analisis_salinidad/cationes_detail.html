@@ -1,0 +1,47 @@
+{% extends "dashboard/base_dashboard.html" %}
+{% load humanize %}
+
+{% load static %}
+
+
+{% block title %}Cationes{% endblock title %}
+
+{% block Main %}
+<div class="content mt-3">
+    <div class="animated fadeIn">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-header"><strong>Cationes</strong><small> Detalles</small></div>
+                    <div class="card-body card-block">
+                        <div>
+                            <p><b>{{object.folio}}</b></p>
+                            <p><b>Titulación Ca+Mg: </b>{{object.titulacionCaMg|floatformat:2|intcomma}}</p>
+                            <p><b>Normalidad EDTA: </b>{{object.normalidadEDTA|floatformat:2|intcomma}}</p>
+                            <p><b>Titulación Ca: </b>{{ object.titulacionCa|floatformat:2|intcomma}}</p>
+                            <p><b>Alicuota: </b>{{object.alicuota|floatformat:2|intcomma}}</p>
+                            <p><b>Na (ppm): </b>{{object.Na|floatformat:2|intcomma}}</p>
+                            <p><b>K (ppm): </b>{{object.K|floatformat:2|intcomma}}</p>
+                            <p><b>Ca++ (meq/L): </b>{{object.CaCation|floatformat:2|intcomma}}</p>
+                            <p><b>Mg++ (meq/L): </b>{{object.MgCation|floatformat:2|intcomma}}</p>
+                            <p><b>Na+ (meq/L): </b>{{object.NaCation|floatformat:2|intcomma}}</p>
+                            <p><b>K+ (meq/L): </b>{{object.KCation|floatformat:2|intcomma}}</p>
+                            <p><b>Analista: </b>{{object.analista}}</p>
+                            <p><b>Fecha de Análisis: </b>{{object.fecha_analisis}}</p>
+                            
+                        </div>
+                        
+                        <div>
+                            <a href="{% url 'analisis_salinidad:cationes_list' %}" class="btn btn-primary btn-block">Regresar</a>
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>        
+{% endblock Main %}
+
+{% block extrajs %}
+
+{% endblock extrajs %}

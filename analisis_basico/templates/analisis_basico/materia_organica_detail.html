@@ -1,0 +1,46 @@
+{% extends "dashboard/base_dashboard.html" %}
+{% load humanize %}
+
+{% load static %}
+
+
+{% block title %}Materia Orgánica{% endblock title %}
+
+{% block Main %}
+<div class="content mt-3">
+    <div class="animated fadeIn">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-header"><strong>Materia Orgánica</strong><small> Detalles</small></div>
+                    <div class="card-body card-block">
+                        <div>
+                            <p><b>{{object.folio}}</b></p>
+                            <p><b>Clase de Suelo: </b>{{object.clase_suelo}}</p>
+                            <p><b>B1: </b>{{object.b1}}</p>
+                            <p><b>B2: </b>{{ object.b2}}</p>
+                            <p><b>B3: </b>{{object.b3}}</p>
+                            <p><b>T: </b>{{object.t}}</p>
+                            <p><b>g: </b>{{object.g}}</p>
+                            <p><b>N: </b>{{object.N}}</p>
+                            <p><b>Materia Orgánica: </b>{{object.materia_organica}} (%)</p>
+                            <p><b>Clasificación: </b>{{object.interpretacion}}</p>
+                            <p><b>Analista: </b>{{object.analista}}</p>
+                            <p><b>Fecha de Análisis: </b>{{object.fecha_analisis}}</p>
+                            
+                        </div>
+                        
+                        <div>
+                            <a href="{% url 'analisis_basico:materia_organica_list' %}" class="btn btn-primary btn-block">Regresar</a>
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>        
+{% endblock Main %}
+
+{% block extrajs %}
+
+{% endblock extrajs %}

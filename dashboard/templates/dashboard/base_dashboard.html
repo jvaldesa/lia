@@ -1,0 +1,175 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+{% load static %}
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{% block title %}{% endblock title %} | LIA</title>
+    <meta name="description" content="Sufee Admin - HTML5 Admin Template">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="{% static 'dashboard/assets/css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'dashboard/assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'dashboard/assets/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'dashboard/assets/css/themify-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'dashboard/assets/css/flag-icon.min.css' %}">
+    <link rel="stylesheet" href="{% static 'dashboard/assets/css/cs-skin-elastic.css' %}">
+
+    <link rel="stylesheet" href="{% static 'core/css/bootstrap-datepicker.min.css' %}">
+
+    <script src="{% static 'dashboard/assets/js/vendor/jquery-3.3.1.min.js' %}"></script>
+    
+    <!-- <link rel="stylesheet" href="assets/css/bootstrap-select.less"> -->
+    {% block estrahead %}
+    
+    {% endblock estrahead %}
+    <link rel="stylesheet" href="{% static 'dashboard/assets/scss/style.css' %}">
+    <!-- <link href="{% static 'dashboard/assets/css/lib/vector-map/jqvmap.min.css' %}" rel="stylesheet"> -->
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
+    
+</head>
+<body>
+
+
+        <!-- Left Panel -->
+
+    <aside id="left-panel" class="left-panel">
+        <nav class="navbar navbar-expand-sm navbar-default">
+
+            <div class="navbar-header mb-5 ">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand mt-2" href="./"><img src="{% static 'dashboard/images/logo_lia_final.png' %}" alt="Logo"></a>
+            </div>
+
+            <div class="profile nav navbar-nav">
+                <div class="profile_pic">
+                    <img src="{% static 'dashboard/images/user.png' %}" alt="..." class="rounded-circle img-thumbnail profile_img">
+                </div>
+                <div class="profile_info nav navbar-nav">
+                    <span>Bienvenido</span>
+                    <h2>{{request.user}}</h2>
+                </div>
+            </div>
+
+            <div id="main-menu" class="main-menu collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <h3 class="menu-title">Menu</h3><!-- /.menu-title -->
+                    <li class="active">
+                        <a href=""> <i class="menu-icon fa fa-home"></i>Home </a>
+                    </li>
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-desktop"></i>Generales</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="fa fa-dot-circle-o"></i><a href="{% url 'generales:analista_list' %}">Analistas</a></li>
+                            <li><i class="fa fa-dot-circle-o"></i><a href="{% url 'generales:cultivo_list' %}">Cultivos</a></li>
+                            <li><i class="fa fa-dot-circle-o"></i><a href="{% url 'generales:estado_list' %}">Estados</a></li>
+                            <li><i class="fa fa-dot-circle-o"></i><a href="{% url 'generales:municipio_list' %}">Municipios</a></li>
+                            <li><i class="fa fa-dot-circle-o"></i><a href="{% url 'generales:organizacion_list' %}">Organizaciones</a></li>
+                            <li><i class="fa fa-dot-circle-o"></i><a href="{% url 'generales:regimen_hidrico_list' %}">Regimen Hidrico</a></li>
+                            <li><i class="fa fa-dot-circle-o"></i><a href="{% url 'generales:tipo_analisis_list' %}">Tipo de Análisis</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-edit"></i>Recepción</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="fa fa-check"></i><a href="{% url 'recepcion:list' %}">Recepción</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-flask"></i>Análisis</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="menu-icon fa fa-dot-circle-o"></i><a href="{% url 'analisis_basico:textura_list' %}">Textura</a></li>
+                            <li><i class="menu-icon fa fa-dot-circle-o"></i><a href="{% url 'analisis_basico:ph_ce_list' %}">Ph y Ce</a></li>
+                            <li><i class="menu-icon fa fa-dot-circle-o"></i><a href="{% url 'analisis_basico:materia_organica_list' %}">Materia Orgánica</a></li>
+                            <li><i class="menu-icon fa fa-dot-circle-o"></i><a href="{% url 'analisis_basico:color_densidad_aparente_list' %}">Color y DA</a></li>
+                            <li><i class="menu-icon fa fa-dot-circle-o"></i><a href="{% url 'analisis_basico:punto_saturacion_list' %}">Punto Saturación</a></li>
+                            <li><i class="menu-icon fa fa-dot-circle-o"></i><a href="{% url 'analisis_nutrientes:nitrogeno_list' %}">Nitrogeno</a></li>
+                            <li><i class="menu-icon fa fa-dot-circle-o"></i><a href="{% url 'analisis_nutrientes:carbonatos_list' %}">Carbonatos</a></li>
+                            <li><i class="menu-icon fa fa-dot-circle-o"></i><a href="{% url 'analisis_nutrientes:micronutrientes_list' %}">Micronutrientes</a></li>
+                            <li><i class="menu-icon fa fa-dot-circle-o"></i><a href="{% url 'analisis_nutrientes:bases_intercambiables_list' %}">Bases Int</a></li>
+                            <li><i class="menu-icon fa fa-dot-circle-o"></i><a href="{% url 'analisis_nutrientes:fosforo_list' %}">Fosforo</a></li>
+                            <li><i class="menu-icon fa fa-dot-circle-o"></i><a href="{% url 'analisis_salinidad:phCePasta_list' %}">Ph y Ce Pasta</a></li>
+                            <li><i class="menu-icon fa fa-dot-circle-o"></i><a href="{% url 'analisis_salinidad:cationes_list' %}">Cationes</a></li>
+                            <li><i class="menu-icon fa fa-dot-circle-o"></i><a href="{% url 'analisis_salinidad:aniones_list' %}">Aniones</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-bar-chart-o"></i>Resultados</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="menu-icon fa fa-file-text-o"></i><a href="">Reporte</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </nav>
+    </aside><!-- /#left-panel -->
+
+    <!-- Left Panel -->
+
+    <!-- Right Panel -->
+
+    <div id="right-panel" class="right-panel">
+
+        <!-- Header-->
+        <header id="header" class="header">
+
+            <div class="header-menu">
+
+                <div class="col-sm-7">
+                    <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-bars"></i></a>
+                    <div class="header-left">
+                        <button class="search-trigger"><i class="fa fa-search"></i></button>
+                        <div class="form-inline">
+                            <form class="search-form">
+                                <input class="form-control mr-sm-2" type="text" placeholder="Search ..." aria-label="Search">
+                                <button class="search-close" type="submit"><i class="fa fa-close"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-5">
+                    <div class="user-area dropdown float-right">
+                        <a id="perfil_lateral" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img class="user-avatar rounded-circle ml-2" src="{% static 'dashboard/images/user.png' %}" alt="User Avatar">{{request.user}}
+                        </a>
+                        <div class="user-menu dropdown-menu">
+                                <a class="nav-link" href="#"><i class="fa fa- user"></i>My Profile</a>
+                                <a class="nav-link" href="#"><i class="fa fa-power -off"></i>Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header><!-- /header -->
+        <div>
+            {% block Main %}
+            
+            {% endblock Main %}
+        </div>
+        <!-- Header-->
+    </div><!-- /#right-panel -->
+
+    <!-- Right Panel -->
+    
+
+   
+    <script src="{% static 'core/js/bootstrap-datepicker.min.js' %}"></script>
+    <script src="{% static 'core/js/bootstrap-datepicker.es.min.js' %}"></script>
+    <script src="{% static 'dashboard/assets/js/popper.min.js' %}"></script>
+    <script src="{% static 'dashboard/assets/js/plugins.js' %}"></script>
+    <script src="{% static 'dashboard/assets/js/main.js' %}"></script>
+        
+    {% block extrajs %}
+    
+    {% endblock extrajs %}
+   
+</body>
+</html>

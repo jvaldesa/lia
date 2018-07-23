@@ -1,0 +1,44 @@
+{% extends "dashboard/base_dashboard.html" %}
+
+{% load static %}
+
+
+{% block title %} Estados {% endblock title %}
+
+{% block estrahead %}
+    
+{% endblock estrahead %}
+
+{% block Main %}
+
+<div class="content mt-3">
+    <div class="animated fadeIn">
+        <div class="row justify-content-center">
+        <div class="col-sm-8">
+            <div class="card">
+                <div class="card-header">
+                    <strong class="card-title"><h2>Estados</h2></strong>
+                </div>
+                <div class="card-body">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">Nombre</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for registro in estado_list|dictsort:'nombre' %}
+                            <tr>
+                                <td>{{registro.nombre}}</td>
+                                <td><a class="btn btn-outline-primary btn-sm mr-2" href="{% url 'generales:estado_update' registro.id %}">Editar</a></td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock Main %}

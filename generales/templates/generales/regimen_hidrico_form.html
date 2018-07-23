@@ -1,0 +1,32 @@
+{% extends "dashboard/base_dashboard.html" %}
+
+{% load static %}
+
+
+{% block title %}Regimen Hídrico{% endblock title %}
+
+{% block Main %}
+<div class="content mt-3">
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-header"><strong>Regimen Hídrico</strong><small> Nuevo</small></div>
+                    <div class="card-body card-block">
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="form-group"><label for="{{form.nombre.label}}" class=" form-control-label">{{form.nombre.label}}</label>
+                            {{form.nombre}}
+                            {{form.nombre.errors}}
+                        </div>
+                        <div>
+                            <input type="submit" class="btn btn-primary btn-block" value="Guardar">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>        
+{% endblock Main %}
+

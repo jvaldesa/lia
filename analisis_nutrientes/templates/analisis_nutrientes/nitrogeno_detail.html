@@ -1,0 +1,44 @@
+{% extends "dashboard/base_dashboard.html" %}
+{% load humanize %}
+
+{% load static %}
+
+
+{% block title %}Nitrogeno{% endblock title %}
+
+{% block Main %}
+<div class="content mt-3">
+    <div class="animated fadeIn">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-header"><strong>Nitrogeno</strong><small> Detalles</small></div>
+                    <div class="card-body card-block">
+                        <div>
+                            <p><b>{{object.folio}}</b></p>
+                            <p><b>Titulación (ml): </b>{{object.M}}</p>
+                            <p><b>Blanco (ml): </b>{{object.B}}</p>
+                            <p><b>Normalidad del Acido: </b>{{ object.N}}</p>
+                            <p><b>Volumen Extractante (ml): </b>{{object.Vi}}</p>
+                            <p><b>Alicuota Destilada: </b>{{object.a}}</p>
+                            <p><b>Peso de la muestra (gr): </b>{{ object.p}}</p>
+                            <p><b>Nitrogeno: </b>{{object.nitrogeno|floatformat:2|intcomma}}</p>
+                            <p><b>Analista: </b>{{object.analista}}</p>
+                            <p><b>Fecha de Análisis: </b>{{object.fecha_analisis}}</p>
+                            
+                        </div>
+                        
+                        <div>
+                            <a href="{% url 'analisis_nutrientes:nitrogeno_list' %}" class="btn btn-primary btn-block">Regresar</a>
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>        
+{% endblock Main %}
+
+{% block extrajs %}
+
+{% endblock extrajs %}

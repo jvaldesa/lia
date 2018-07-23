@@ -1,0 +1,30 @@
+{% extends "dashboard/base_dashboard.html" %}
+
+{% load static %}
+
+
+{% block title %}Ph y Conductividad Eléctrica{% endblock title %}
+
+{% block Main %}
+<div class="content mt-3">
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-header"><strong>Ph y Conductividad Eléctrica</strong><small> Eliminar</small></div>
+                    <div class="card-body card-block">
+                    <form method="post">
+                        {% csrf_token %}
+                        <p>Esta seguro que desea eliminar: "<strong><b style="color:black;">{{object}}</b></strong>"? </p>
+                        <div>
+                            <input type="submit" class="btn btn-danger" value="Eliminar">
+                            <a class="btn btn-secondary" href="{% url 'analisis_basico:textura_list' %}">Cancelar</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>        
+{% endblock Main %}
+
