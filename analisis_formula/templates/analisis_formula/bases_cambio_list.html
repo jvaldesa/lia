@@ -1,0 +1,53 @@
+{% extends "dashboard/base_dashboard.html" %}
+{% load humanize %}
+{% load static %}
+
+
+{% block title %} Bases de Cambio {% endblock title %}
+
+{% block estrahead %}
+    
+{% endblock estrahead %}
+<link rel="stylesheet" href="{% static 'analisis_basico/css/estilos.css' %}">
+{% block Main %}
+
+<div class="content mt-3">
+    <div class="animated fadeIn">
+        <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-header">
+                    <strong class="card-title"><h2>Bases de Cambio</h2></strong>
+                </div>
+                <div class="card-body table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">Folio</th>
+                                <th scope="col">Ca+ (meq/100g)</th>
+                                <th scope="col">Mg++ (meq/100g)</th>
+                                <th scope="col">Na+ (meq/100g)</th>
+                                <th scope="col">K+ (meq/100g)</th>
+                                <th scope="col">Capacidad de Intercambio Cationico (CIC)'</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for registro in basescambio_list|dictsort:'id' reversed %}
+                            <tr>
+                                <th scope="row">{{registro.folio}}</th>
+                                <td>{{registro.CaMeq|floatformat:2|intcomma}}</td>
+                                <td>{{registro.MgMeq|floatformat:2|intcomma}}</td>
+                                <td>{{registro.NaMeq|floatformat:2|intcomma}}</td>
+                                <td>{{registro.KMeq|floatformat:2|intcomma}}</td>
+                                <td>{{registro.Cic|floatformat:2|intcomma}}</td>
+                                <th><a class="btn btn-outline-success btn-sm mr-2" href="{% url 'analisis_formula:bases_cambio_detail' registro.id %}">Ver</a></th>
+                            </tr>
+                        </tbody>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock Main %}

@@ -1,0 +1,48 @@
+{% extends "dashboard/base_dashboard.html" %}
+{% load humanize %}
+
+{% load static %}
+
+
+{% block title %}Bases de Cambio{% endblock title %}
+
+{% block Main %}
+<div class="content mt-3">
+    <div class="animated fadeIn">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-header"><strong>Bases de Cambio</strong><small> Detalles</small></div>
+                    <div class="card-body card-block">
+                        <div>
+                            <p><b>{{object.folio}}</b></p>
+                            <p><b>Ca+ (meq/100g): </b>{{object.CaMeq|floatformat:2|intcomma}}</p>
+                            <p><b>Mg++ (meq/100g): </b>{{object.MgMeq|floatformat:2|intcomma}}</p>
+                            <p><b>Na+ (meq/100g): </b>{{ object.NaMeq|floatformat:2|intcomma}}</p>
+                            <p><b>K+ (meq/100g): </b>{{object.KMeq|floatformat:2|intcomma}}</p>
+                            <p><b>Capacidad de Intercambio Cationico (CIC): </b>{{object.Cic|floatformat:2|intcomma}}</p>
+                            <p><b>Ca+ (%): </b>{{object.CaPorcentaje|floatformat:2|intcomma}}</p>
+                            <p><b>Mg+ (%): </b>{{object.MgPorcentaje|floatformat:2|intcomma}}</p>
+                            <p><b>Na+ (%): </b>{{object.NaPorcentaje|floatformat:2|intcomma}}</p>
+                            <p><b>K+ (%): </b>{{object.KPorcentaje|floatformat:2|intcomma}}</p>
+                            <p><b>Ca/Mg: </b>{{object.Ca_Mg|floatformat:2|intcomma}}</p>
+                            <p><b>Mg/K: </b>{{object.Mg_K|floatformat:2|intcomma}}</p>
+                            <p><b>(Ca+Mg)/K: </b>{{object.CaMg_K|floatformat:2|intcomma}}</p>
+                            <p><b>Ca/K: </b>{{object.Ca_K|floatformat:2|intcomma}}</p>
+                            
+                        </div>
+                        
+                        <div>
+                            <a href="{% url 'analisis_formula:bases_cambio_list' %}" class="btn btn-primary btn-block">Regresar</a>
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>        
+{% endblock Main %}
+
+{% block extrajs %}
+
+{% endblock extrajs %}

@@ -1,0 +1,47 @@
+{% extends "dashboard/base_dashboard.html" %}
+{% load humanize %}
+{% load static %}
+
+
+{% block title %} RAS y PSI {% endblock title %}
+
+{% block estrahead %}
+    
+{% endblock estrahead %}
+<link rel="stylesheet" href="{% static 'analisis_basico/css/estilos.css' %}">
+{% block Main %}
+
+<div class="content mt-3">
+    <div class="animated fadeIn">
+        <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-header">
+                    <strong class="card-title"><h2>RAS y PSI</h2></strong>
+                </div>
+                <div class="card-body table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">Folio</th>
+                                <th scope="col">RAS</th>
+                                <th scope="col">PSI</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for registro in raspsi_list|dictsort:'id' reversed %}
+                            <tr>
+                                <th scope="row">{{registro.folio}}</th>
+                                <td>{{registro.Ras|floatformat:2|intcomma}}</td>
+                                <td>{{registro.Psi|floatformat:2|intcomma}}</td>
+                                <th><a class="btn btn-outline-success btn-sm mr-2" href="{% url 'analisis_formula:ras_psi_detail' registro.id %}">Ver</a></th>
+                            </tr>
+                        </tbody>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock Main %}
