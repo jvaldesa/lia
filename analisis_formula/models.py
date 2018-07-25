@@ -14,7 +14,7 @@ class BasesCambio(models.Model):
     MgMeq = models.DecimalField(max_digits=7, decimal_places=2, verbose_name='Mg++ (meq/100g)')
     NaMeq = models.DecimalField(max_digits=7, decimal_places=2, verbose_name='Na+ (meq/100g)')
     KMeq = models.DecimalField(max_digits=7, decimal_places=2, verbose_name='K+ (meq/100g)')
-    Cic = models.DecimalField(max_digits=7, decimal_places=2, verbose_name='Capacidad de Intercambio Cationico (CIC')
+    Cic = models.DecimalField(max_digits=7, decimal_places=2, verbose_name='Capacidad de Intercambio Cationico (CIC)')
     CaPorcentaje = models.DecimalField(max_digits=7, decimal_places=2, verbose_name='Ca+ (%)')
     MgPorcentaje = models.DecimalField(max_digits=7, decimal_places=2, verbose_name='Mg+ (%)')
     NaPorcentaje = models.DecimalField(max_digits=7, decimal_places=2, verbose_name='Na+ (%)')
