@@ -106,7 +106,7 @@
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-bar-chart-o"></i>Resultados</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-file-text-o"></i><a href="">Reporte</a></li>
+                            <li><i class="menu-icon fa fa-file-text-o"></i><a href="{% url 'reportes:list' %}">Reporte</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -145,7 +145,7 @@
                         </a>
                         <div class="user-menu dropdown-menu">
                                 <a class="nav-link" href="#"><i class="fa fa- user"></i>My Profile</a>
-                                <a class="nav-link" href="#"><i class="fa fa-power -off"></i>Logout</a>
+                                <a class="nav-link" href="{% url 'logout' %}"><i class="fa fa-power -off"></i>Logout</a>
                         </div>
                     </div>
                 </div>
