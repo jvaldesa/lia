@@ -35,23 +35,23 @@ Inicio
                     <div class="form-group">
                         <label>Nombre *</label>
                         <div class="input-group">
-                            <input class="form-control" type="text">
+                            {{form.name}}
                         </div>
                         {{form.name.errors}}
                     </div>
                     <div class="form-group">
                         <label>Email *</label>
                         <div class="input-group">
-                            <input class="form-control" type="email">
+                            {{form.email}}
                         </div>
-                        
+                        {{form.email.errors}}
                     </div>
                     <div class="form-group">
                         <label>Mensaje *</label>
                         <div class="input-group">
-                            <textarea class="form-control" name="" id=""  rows="5"></textarea>
+                            {{form.content}}
                         </div>
-                        
+                        {{form.conten.errors}}
                     </div>
                     <div class="text-center">
                         <input type="submit" class="btn btn-primary btn-block py-2" value="Enviar">
