@@ -41,6 +41,6 @@ analisis_basico_patterns = ([
     path('punto_saturacion_delete/<int:pk>', PuntoSaturacionDeleteView.as_view(), name='punto_saturacion_delete'),
 
     
-    path('consulta/', views.consulta, name='consulta'),
+    #path('consulta/', views.consulta, name='consulta'),
     #path('delete/<int:pk>', PageDeleteView.as_view() , name='delete'),
 ], 'analisis_basico')
