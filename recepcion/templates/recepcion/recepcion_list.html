@@ -39,7 +39,7 @@
                             <td>{{registro.estado}}</td>
                             <td>{{registro.municipio}}</td>
                             <td>{{registro.fecha_recepcion}}</td>
-                            <th><a class="btn btn-outline-primary btn-sm mr-2" href="{% url 'recepcion:update' registro.id %}">Editar</a><a class="btn btn-outline-danger btn-sm" href="{% url 'recepcion:delete' registro.id %}">Eliminar</a></th>
+                            <th><a class="btn btn-outline-primary btn-sm mr-2" href="{% url 'recepcion:update' registro.id %}">Editar</a><a class="btn btn-outline-danger btn-sm" href="{% url 'recepcion:delete' registro.id %}">Eliminar</a><a href="{% url 'recepcion:pdf' registro.id %}"><button type="button" class="btn btn-outline-primary ml-2"><i class="fa fa-file-pdf-o"></i>&nbsp; Ficha</button></a></th>
                             </tr>
                         </tbody>
                         {% endfor %}

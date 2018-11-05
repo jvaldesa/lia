@@ -19,6 +19,7 @@ class Recepcion(models.Model):
     estado = models.ForeignKey(Estado, on_delete=models.SET_NULL, blank=True, null=True)
     municipio =  models.ForeignKey(Municipio, on_delete=models.SET_NULL, blank=True, null=True)
     localidad_ejido = models.CharField(max_length=200, blank=True, null=True)
+    nombre_predio = models.CharField(max_length=200, blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True, verbose_name='Fecha de Creación')
     updated = models.DateTimeField(auto_now=True, verbose_name='Fecha de Edición')
     

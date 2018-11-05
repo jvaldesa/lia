@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import RecepcionListView, RecepcionCreateView, RecepcionUpdateView, RecepcionDeleteView
+from .views import RecepcionListView, RecepcionCreateView, RecepcionUpdateView, RecepcionDeleteView, Reporte_Recepcion_PDF
 from . import views
 
 recepcion_patterns = ([
@@ -8,4 +8,5 @@ recepcion_patterns = ([
     path('create/', RecepcionCreateView.as_view(), name='create'),
     path('update/<int:pk>', RecepcionUpdateView.as_view() , name='update'),
     path('delete/<int:pk>', RecepcionDeleteView.as_view() , name='delete'),
+    path('pdf/<int:pk>', Reporte_Recepcion_PDF.as_view() , name='pdf'),
 ], 'recepcion')
