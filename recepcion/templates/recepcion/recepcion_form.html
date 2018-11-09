@@ -106,6 +106,13 @@ Recepcion{% endblock title %}
             {{form.localidad_ejido.errors}}
         </div>
       </div>
+      <div class="form-row align-items-center mt-3">
+        <div class="col-md-3">
+          <label for="{{form.estado.label}}">{{form.nombre_predio.label}}</label>
+            {{form.nombre_predio}}
+            {{form.nombre_predio.errors}}
+        </div>
+      </div>
 
       <input type="submit" class="btn btn-primary btn-block mb-3 mt-5" value="Guardar">
     </form>

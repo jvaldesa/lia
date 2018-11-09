@@ -18,7 +18,7 @@ select_cultivo = (
 class RecepcionForm(forms.ModelForm):
     class Meta:
         model = Recepcion
-        fields = ('folio', 'productor', 'organizacion', 'fecha_recepcion', 'fecha_muestreo', 'tipo_analisis', 'regimen_hidrico', 'estado', 'municipio', 'profundida_cm', 'numero_hectareas', 'cultivo_anterior', 'cultivo_a_establecer', 'rendimiento_esperado', 'estado', 'municipio', 'localidad_ejido' )
+        fields = ('folio', 'productor', 'organizacion', 'fecha_recepcion', 'fecha_muestreo', 'tipo_analisis', 'regimen_hidrico', 'estado', 'municipio', 'profundida_cm', 'numero_hectareas', 'cultivo_anterior', 'cultivo_a_establecer', 'rendimiento_esperado', 'estado', 'municipio', 'localidad_ejido', 'nombre_predio' )
         widgets = {
             'folio': forms.TextInput(attrs={'class':'form-control', 'placeholder':'Folio'}),
             'productor': forms.TextInput(attrs={'class':'form-control', 'placeholder':'Nombre del Productor'}),
@@ -29,12 +29,13 @@ class RecepcionForm(forms.ModelForm):
             'regimen_hidrico': forms.Select(attrs={'class':'form-control', 'placeholder':'Regimen Hidrico'}),
             'profundida_cm': forms.NumberInput(attrs={'class':'form-control', 'placeholder':'Profundidad de Muestreo(cm)'}),
             'numero_hectareas': forms.NumberInput(attrs={'class':'form-control', 'placeholder':'Número de Hectareas'}),
-            'cultivo_anterior': forms.Select(choices=select_cultivo, attrs={'class':'form-control'}),
-            'cultivo_a_establecer': forms.Select(choices=select_cultivo, attrs={'class':'form-control'}),
+            'cultivo_anterior': forms.Select(attrs={'class':'form-control'}),
+            'cultivo_a_establecer': forms.Select(attrs={'class':'form-control'}),
             'rendimiento_esperado': forms.NumberInput(attrs={'class':'form-control', 'placeholder':'Rendimiento Esperado(tons)'}),
             'estado': forms.Select(attrs={'class':'form-control', 'placeholder':'Estado'}),
             'municipio': forms.Select(attrs={'class':'form-control', 'placeholder':'Municipio'}),
             'localidad_ejido': forms.TextInput(attrs={'class':'form-control', 'placeholder':'Localidad o Ejido'}),
+            'nombre_predio': forms.TextInput(attrs={'class':'form-control', 'placeholder':'Nombre del Predio'}),
         }
             
     def __init__(self, *args, **kwargs):
