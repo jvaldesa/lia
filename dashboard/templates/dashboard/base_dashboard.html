@@ -49,7 +49,7 @@
                 <a class="navbar-brand mt-2" href="./"><img src="{% static 'dashboard/images/logo_lia_final.png' %}" alt="Logo"></a>
             </div>
 
-            <div class="profile nav navbar-nav">
+            <!-- <div class="profile nav navbar-nav">
                 <div class="profile_pic">
                     <img src="{% static 'dashboard/images/user.png' %}" alt="..." class="rounded-circle img-thumbnail profile_img">
                 </div>
@@ -57,7 +57,7 @@
                     <span>Bienvenido</span>
                     <h2>{{request.user}}</h2>
                 </div>
-            </div>
+            </div> -->
 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
@@ -144,8 +144,8 @@
                             <img class="user-avatar rounded-circle ml-2" src="{% static 'dashboard/images/user.png' %}" alt="User Avatar">{{request.user}}
                         </a>
                         <div class="user-menu dropdown-menu">
-                                <a class="nav-link" href="#"><i class="fa fa- user"></i>My Profile</a>
-                                <a class="nav-link" href="{% url 'logout' %}"><i class="fa fa-power -off"></i>Logout</a>
+                                <a class="nav-link" href="#"><i class="fa fa- user"></i>Mi Perfil</a>
+                                <a class="nav-link" href="{% url 'logout' %}"><i class="fa fa-power -off"></i>Salir</a>
                         </div>
                     </div>
                 </div>

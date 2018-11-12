@@ -194,8 +194,14 @@ main {
     }
 }
 
-@media screen and (max-width: 1050px) {
+@media screen and (max-width: 1065px) {
     #headerNav .navbar-nav .nav-item .nav-link {
-    font-size: .7rem;
+    font-size: .8rem;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    #headerNav .navbar-nav .nav-item .nav-link {
+    font-size: 1.5rem;
     }
 }
